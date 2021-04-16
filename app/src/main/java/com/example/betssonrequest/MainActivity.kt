@@ -3,9 +3,7 @@ package com.example.betssonrequest
 /**
  * https://proandroiddev.com/coroutines-for-android-6f9b9f966056
  *
- *
  * https://developer.android.com/kotlin/coroutines/coroutines-adv
- *
  *
  * https://developer.android.com/kotlin/coroutines?gclid=CjwKCAjw9r-DBhBxEiwA9qYUpfhME9c2-I43aO_nC5n6ksReC0MZCtnihXqyem5NyLMJf_8QR49fYxoCkUgQAvD_BwE&gclsrc=aw.ds
  *
@@ -50,12 +48,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             }.onSuccess {
                 Log.d("OkHttp", "Success: ${it.body()}")
             }.onFailure {
-                Log.d("OkHttp", "Faild:  ${it.message}")
+                Log.d("OkHttp", "Failed:  ${it.message}")
             }
         }
         findViewById<MaterialButton>(R.id.no_password).setOnClickListener {
             launch {
-                def.await()
+                def
             }
         }
     }
