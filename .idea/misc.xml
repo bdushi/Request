@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/text_input_white_background.xml" value="0.1537037037037037" />
+        <entry key="app/src/main/res/drawable/text_input_white_background_disabled.xml" value="0.1537037037037037" />
+        <entry key="app/src/main/res/drawable/text_input_white_background_error.xml" value="0.2638888888888889" />
+        <entry key="app/src/main/res/drawable/text_input_white_background_focused.xml" value="0.27025641025641023" />
+        <entry key="app/src/main/res/drawable/text_input_white_background_normal.xml" value="0.27447916666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

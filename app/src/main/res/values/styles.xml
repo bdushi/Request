@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/CustomTextInputLayoutThemeOverlay</item>
+        <item name="shapeAppearanceOverlay">@style/CustomTextInputLayoutShapeAppearanceOverlay</item>
+        <item name="textInputLayoutNormalSelectorDrawable">@drawable/text_input_white_background</item>
+        <item name="textInputLayoutErrorDrawable">@drawable/text_input_white_background_error</item>
+        <item name="boxCollapsedPaddingTop">4dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">true</item>
+    </style>
+
+    <style name="CustomTextInputLayoutThemeOverlay" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="editTextStyle">@style/CustomTextInputLayoutEditTextStyle</item>
+    </style>
+
+    <style name="CustomTextInputLayoutEditTextStyle" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <!-- Padding values that total 34dp to visually match the spec. -->
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="CustomTextInputLayoutShapeAppearanceOverlay" parent="">
+        <item name="cornerSizeBottomLeft">4dp</item>
+        <item name="cornerSizeBottomRight">4dp</item>
+    </style>
+
+<!--    <style name="CustomTextInputLayoutEditTextStyle" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">-->
+<!--        <item name="android:textColor">@null</item>-->
+<!--        <item name="android:ellipsize">end</item>-->
+<!--        <item name="android:singleLine">true</item>-->
+<!--        <item name="android:maxLines">1</item>-->
+<!--        <item name="android:textColorHint">@color/hint</item>-->
+<!--        <item name="hintTextColor">@color/hint</item>-->
+<!--        <item name="boxBackgroundColor">@color/TextBoxBgColor</item>-->
+<!--        <item name="boxStrokeColor">#000</item>-->
+<!--        &lt;!&ndash; Padding values that total 34dp to visually match the spec. &ndash;&gt;-->
+<!--        <item name="android:paddingTop">24dp</item>-->
+<!--        <item name="android:paddingBottom">10dp</item>-->
+<!--    </style>-->
+
+</resources>
