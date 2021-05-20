@@ -15,9 +15,14 @@ package com.example.betssonrequest
  */
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
@@ -31,7 +36,6 @@ import kotlin.coroutines.CoroutineContext
 
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
-
     private lateinit var mJob: Job
 
     override val coroutineContext: CoroutineContext get() = mJob + Dispatchers.Main
@@ -40,20 +44,38 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         mJob = Job()
         setContentView(R.layout.activity_main)
-        val def = async(Dispatchers.IO) {
-            runCatching {
-                retrofit()
-                        .create(EndPointService::class.java)
-                        .noPassword("9906acf0-e863-4a03-b7ff-225ec4f624fb")
-            }.onSuccess {
-                Log.d("OkHttp", "Success: ${it.body()}")
-            }.onFailure {
-                Log.d("OkHttp", "Failed:  ${it.message}")
+        val txtInputLayout: TextInputLayout = findViewById(R.id.txtInputLayout)
+        val txtInput: TextInputEditText = findViewById(R.id.txtInput)
+        txtInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
-        }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(!p0.isNullOrEmpty()) {
+                    txtInputLayout.error = "Error"
+                } else {
+                    txtInputLayout.error = null
+                    txtInputLayout.isErrorEnabled = false
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
         findViewById<MaterialButton>(R.id.no_password).setOnClickListener {
             launch {
-                def
+                async(Dispatchers.IO) {
+                    runCatching {
+                        retrofit()
+                            .create(EndPointService::class.java)
+                            .noPassword("9906acf0-e863-4a03-b7ff-225ec4f624fb")
+                    }.onSuccess {
+                        Log.d("OkHttp", "Success: ${it.body()}")
+                    }.onFailure {
+                        Log.d("OkHttp", "Failed:  ${it.message}")
+                    }
+                }
             }
         }
     }

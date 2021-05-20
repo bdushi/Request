@@ -21,13 +21,13 @@ class MyTextInputLayout : TextInputLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init(context = context, attrs = attrs, defStyleAttr = defStyleAttr)
     }
-    private fun init(context: Context , attrs: AttributeSet?, defStyleAttr: Int) {
+    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         val appAttrs = context.theme.obtainStyledAttributes(attrs, R.styleable.MyTextInputLayout, defStyleAttr, 0)
         normal = appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutNormalSelectorDrawable)
         error = appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutErrorDrawable)
-//        background = normal
+        background = normal
 //        background = appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutNormalSelectorDrawable)
-        background = ContextCompat.getDrawable(context, R.drawable.text_input_white_background)
+//        background = ContextCompat.getDrawable(context, R.drawable.text_input_white_background)
         // Recycle attrs
         appAttrs.recycle()
     }
