@@ -2,15 +2,18 @@
 
 <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
 <!--    &lt;!&ndash; Focused &ndash;&gt;-->
-<!--    <item android:drawable="@drawable/text_input_white_background_focused"-->
+<!--    <item-->
+<!--        android:drawable="@drawable/text_input_white_background_focused"-->
 <!--        android:state_focused="true"/>-->
 
 <!--    &lt;!&ndash; Disabled &ndash;&gt;-->
-<!--    <item android:drawable="@drawable/text_input_white_background_disabled"-->
+<!--    <item-->
+<!--        android:drawable="@drawable/text_input_white_background_disabled"-->
 <!--        android:state_enabled="false"/>-->
 
 <!--    &lt;!&ndash; Normal &ndash;&gt;-->
-<!--    <item android:drawable="@drawable/text_input_white_background_normal"/>-->
+<!--    <item-->
+<!--        android:drawable="@drawable/text_input_white_background_normal"/>-->
 <!--</selector>-->
 
 <selector

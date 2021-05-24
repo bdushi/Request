@@ -10,17 +10,15 @@
     <color name="text_input_disabled_border">#5B5B61</color>
     <color name="text_input_focused_border">#FFBB86FC</color>
     <color name="text_input_normal_border">#FFF</color>
-    <color name="text_input_white_background">#FAFAFA</color>
-
+    <color name="text_input_white_background">#2D2D30</color>
 
     <color name="QuaternaryText">#5B5B61</color>
-
 
     <color name="hint">@color/QuaternaryText</color>
     <color name="TextBoxBgColor">#FAFAFA</color>
     <color name="QuinaryColor">#FBD1B4</color>
     <color name="SecondaryColor2">#E2E2E2</color>
     <color name="TertiaryColor1">#8E8E93</color>
-    <color name="colorTextDefault">#000000</color>
+    <color name="colorTextDefault">#FFFFFF</color>
     <color name="colorTextDark">#BFBFBF</color>
 </resources>

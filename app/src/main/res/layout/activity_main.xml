@@ -11,17 +11,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_password"
-        android:layout_gravity="center_horizontal" />
-    <com.google.android.material.textfield.TextInputLayout
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <com.example.betssonrequest.MyTextInputLayout
         android:id="@+id/txtInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/MyTextInputLayoutStyle">
+        android:layout_marginBottom="10dp"
+        style="@style/CustomTextInputLayout">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/text_input_white_background"
+            android:hint="Error"/>
+    </com.example.betssonrequest.MyTextInputLayout>
+
+    <com.example.betssonrequest.MyTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/CustomTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_input_white_background"
             android:hint="@string/app_name"/>
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.example.betssonrequest.MyTextInputLayout>
+
+    <com.example.betssonrequest.MyTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/text_input_white_background"
+        style="@style/CustomTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:textColor="@color/colorTextDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Empty"/>
+    </com.example.betssonrequest.MyTextInputLayout>
+
+    <com.example.betssonrequest.MyTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:enabled="false"
+        style="@style/CustomTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is disabled"
+            android:hint="Disable"/>
+    </com.example.betssonrequest.MyTextInputLayout>
+
+    <com.example.betssonrequest.MyTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default FilledBox"
+            android:hint="Default"/>
+    </com.example.betssonrequest.MyTextInputLayout>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

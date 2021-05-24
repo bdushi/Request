@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MyTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="materialThemeOverlay">@style/CustomTextInputLayoutThemeOverlay</item>
         <item name="shapeAppearanceOverlay">@style/CustomTextInputLayoutShapeAppearanceOverlay</item>
-        <item name="textInputLayoutNormalSelectorDrawable">@drawable/text_input_white_background</item>
         <item name="textInputLayoutErrorDrawable">@drawable/text_input_white_background_error</item>
+        <item name="textInputLayoutNormalSelectorDrawable">@drawable/text_input_white_background</item>
         <item name="boxCollapsedPaddingTop">4dp</item>
-        <item name="strokeWidth">2dp</item>
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeWidthFocused">0dp</item>
-        <item name="hintEnabled">true</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/CustomTextInputLayoutThemeOverlay</item>
+        <item name="shapeAppearanceOverlay">@style/CustomTextInputLayoutShapeAppearanceOverlay</item>
+        <item name="boxCollapsedPaddingTop">4dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
     </style>
 
     <style name="CustomTextInputLayoutThemeOverlay" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
@@ -25,5 +31,16 @@
     <style name="CustomTextInputLayoutShapeAppearanceOverlay" parent="">
         <item name="cornerSizeBottomLeft">4dp</item>
         <item name="cornerSizeBottomRight">4dp</item>
+    </style>
+
+    <style name="MyTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/CustomTextInputLayoutThemeOverlay</item>
+        <item name="shapeAppearanceOverlay">@style/CustomTextInputLayoutShapeAppearanceOverlay</item>
+        <item name="textInputLayoutNormalSelectorDrawable">@drawable/text_input_white_background</item>
+        <item name="textInputLayoutErrorDrawable">@drawable/text_input_white_background_error</item>
+        <item name="boxCollapsedPaddingTop">4dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">true</item>
     </style>
 </resources>
