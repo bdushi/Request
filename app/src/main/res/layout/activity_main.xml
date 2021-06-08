@@ -6,24 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp">
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/no_password"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/no_password"
-        android:layout_gravity="center_horizontal"
-        android:visibility="gone"/>
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/no_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_password" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/start_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_service"
+            android:layout_gravity="end"/>
+    </LinearLayout>
 
     <com.example.betssonrequest.MyTextInputLayout
         android:id="@+id/txtInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        app:hintTextAppearance="@style/HintTextAppearance"
         style="@style/CustomTextInputLayout">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/hint"
             android:background="@drawable/text_input_white_background"
             android:hint="Error"/>
     </com.example.betssonrequest.MyTextInputLayout>
@@ -69,6 +82,7 @@
     <com.example.betssonrequest.MyTextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:errorEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

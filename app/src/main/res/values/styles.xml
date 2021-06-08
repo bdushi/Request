@@ -8,6 +8,16 @@
         <item name="boxCollapsedPaddingTop">4dp</item>
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeWidthFocused">0dp</item>
+<!--        <item name="hintTextAppearance">@style/HintTextAppearance</item>-->
+        <item name="errorIconDrawable">@null</item>
+        <item name="endIconMode">clear_text</item>
+    </style>
+
+    <style name="HintTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@android:color/holo_green_dark</item>
+        <item name="hintTextColor">@android:color/holo_green_dark</item>
+        <item name="android:textColorHint">@android:color/holo_green_dark</item>
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">

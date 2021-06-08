@@ -14,28 +14,47 @@ package com.example.betssonrequest
  * https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md
  */
 
+/**
+ * https://developer.android.com/guide/components/services
+ */
+
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.google.gson.GsonBuilder
 import kotlinx.coroutines.*
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.security.SecureRandom
-import java.security.cert.X509Certificate
-import javax.net.ssl.*
 import kotlin.coroutines.CoroutineContext
-
+import android.content.Intent
+import android.util.Log
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
+    private var states = arrayOf(
+        intArrayOf(android.R.attr.state_pressed),
+        intArrayOf(android.R.attr.state_focused),
+        intArrayOf(android.R.attr.state_selected),
+        intArrayOf(android.R.attr.state_checkable),
+        intArrayOf(android.R.attr.state_checked),
+        intArrayOf(android.R.attr.state_enabled),
+        intArrayOf(android.R.attr.state_window_focused)
+    )
+
+    private var colors = intArrayOf(
+        Color.GREEN,
+        Color.GREEN,
+        Color.GREEN,
+        Color.GREEN,
+        Color.GREEN,
+        Color.GREEN,
+        Color.GREEN
+    )
+
+    var myList = ColorStateList(states, colors)
+
     private lateinit var mJob: Job
 
     override val coroutineContext: CoroutineContext get() = mJob + Dispatchers.Main
@@ -52,6 +71,9 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(!p0.isNullOrEmpty()) {
                     txtInputLayout.error = "Error"
+                    txtInput.setHintTextColor(myList)
+//                    txtInputLayout.hintTextColor = myList
+//                    txtInputLayout.setHintTextAppearance(R.style.HintTextAppearance)
                 } else {
                     txtInputLayout.error = null
                     txtInputLayout.isErrorEnabled = false
@@ -63,11 +85,14 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             }
 
         })
+        findViewById<MaterialButton>(R.id.start_service).setOnClickListener {
+            startService(Intent(this, TestService::class.java))
+        }
         findViewById<MaterialButton>(R.id.no_password).setOnClickListener {
             launch {
                 async(Dispatchers.IO) {
                     runCatching {
-                        retrofit()
+                        Client().retrofit()
                             .create(EndPointService::class.java)
                             .noPassword("9906acf0-e863-4a03-b7ff-225ec4f624fb")
                     }.onSuccess {
@@ -83,63 +108,5 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     override fun onDestroy() {
         super.onDestroy()
         mJob.cancel()
-    }
-
-
-    private fun retrofit() : Retrofit {
-        return Retrofit
-                .Builder()
-                .baseUrl("https://sto-tech-techssona.bde.local/Techsson.Customer.Management.Api/api/Customer/")
-                .client(getUnsafeOkHttpClient(logging()))
-                .addConverterFactory(converterFactory())
-                .build()
-    }
-
-    private fun okHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
-        return OkHttpClient.Builder()
-                .addInterceptor(httpLoggingInterceptor)
-                .build()
-    }
-
-    private fun logging(): HttpLoggingInterceptor {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-        return logging
-    }
-
-    private fun converterFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create(
-                GsonBuilder()
-                        .setDateFormat("yyyy-MM-dd")
-                        .create()
-        )
-    }
-
-    private fun getUnsafeOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
-        return try {
-            // Create a trust manager that does not validate certificate chains
-            val trustAllCerts: Array<TrustManager> = arrayOf(
-                    object : X509TrustManager {
-                        override fun checkClientTrusted(p0: Array<out X509Certificate>?, p1: String?)  = Unit
-                        override fun checkServerTrusted(p0: Array<out X509Certificate>?, p1: String?)  = Unit
-                        override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
-                    }
-            )
-
-            // Install the all-trusting trust manager
-            val sslContext: SSLContext = SSLContext.getInstance("SSL")
-            sslContext.init(null, trustAllCerts, SecureRandom())
-
-            // Create an ssl socket factory with our all-trusting manager
-            val sslSocketFactory: SSLSocketFactory = sslContext.socketFactory
-            OkHttpClient
-                    .Builder()
-                    .sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
-                    .hostnameVerifier { p0, p1 -> true }
-                    .addInterceptor(httpLoggingInterceptor)
-                    .build()
-        } catch (e: Exception) {
-            throw RuntimeException(e)
-        }
     }
 }

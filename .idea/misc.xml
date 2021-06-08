@@ -9,11 +9,11 @@
         <entry key="app/src/main/res/drawable/text_input_white_background_error.xml" value="0.2638888888888889" />
         <entry key="app/src/main/res/drawable/text_input_white_background_focused.xml" value="0.27025641025641023" />
         <entry key="app/src/main/res/drawable/text_input_white_background_normal.xml" value="0.27447916666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2958963282937365" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

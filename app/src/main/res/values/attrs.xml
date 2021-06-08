@@ -4,5 +4,6 @@
     <declare-styleable name="MyTextInputLayout">
         <attr name="textInputLayoutNormalSelectorDrawable" format="reference"/>
         <attr name="textInputLayoutErrorDrawable" format="reference"/>
+        <attr name="textInputHintTextAppearance" format="reference"/>
     </declare-styleable>
 </resources>
