@@ -1,4 +1,4 @@
-package com.example.betssonrequest
+package com.example.core
 
 import retrofit2.Response
 import retrofit2.http.Headers

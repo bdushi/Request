@@ -1,4 +1,4 @@
-package com.example.betssonrequest
+package com.example.core
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

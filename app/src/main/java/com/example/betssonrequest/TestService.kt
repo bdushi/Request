@@ -2,9 +2,10 @@ package com.example.betssonrequest
 
 import android.app.Service
 import android.content.Intent
-import android.os.Handler
 import android.os.IBinder
 import android.util.Log
+import com.example.core.Client
+import com.example.core.EndPointService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -47,7 +48,7 @@ class TestService : Service(), CoroutineScope {
     }
 
     override fun onBind(p0: Intent?): IBinder? {
-        return null;
+        return null
     }
 
     override fun onDestroy() {

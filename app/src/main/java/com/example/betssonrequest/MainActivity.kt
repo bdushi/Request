@@ -31,6 +31,8 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 import android.content.Intent
 import android.util.Log
+import com.example.core.Client
+import com.example.core.EndPointService
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
     private var states = arrayOf(

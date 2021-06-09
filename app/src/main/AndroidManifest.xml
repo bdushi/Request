@@ -14,7 +14,6 @@
         android:theme="@style/Theme.Betsson"
         android:fullBackupContent="@xml/my_backup_rules">
         <activity
-            android:exported="false"
             android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +21,7 @@
             </intent-filter>
         </activity>
         <service
+            android:exported="false"
             android:name=".TestService"/>
     </application>
 

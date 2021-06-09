@@ -41,7 +41,6 @@ android {
             storePassword "123456"
             keyAlias "test"
             keyPassword "123456"
-            println("====== signingConfigs.release ======")
             v1SigningEnabled true
             v2SigningEnabled true
         }
@@ -49,7 +48,6 @@ android {
 }
 
 dependencies {
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
     implementation 'androidx.core:core-ktx:1.6.0-beta02'
@@ -57,10 +55,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0-beta02'
 
-    // retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation project(path: ':core')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
