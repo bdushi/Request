@@ -25,31 +25,37 @@
     </FrameLayout>
 
     <com.example.betssonrequest.MyTextInputLayout
-        android:id="@+id/txtInputLayout"
+        android:id="@+id/txtErrorInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         app:hintTextAppearance="@style/HintTextAppearance"
         style="@style/CustomTextInputLayout">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtInput"
+            android:id="@+id/txtErrorInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/hint"
             android:background="@drawable/text_input_white_background"
-            android:hint="Error"/>
+            android:hint="Error"
+            android:imeOptions="actionNext"
+            android:inputType="number"/>
     </com.example.betssonrequest.MyTextInputLayout>
 
     <com.example.betssonrequest.MyTextInputLayout
+        android:id="@+id/test_box_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         style="@style/CustomTextInputLayout">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/test_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/text_input_white_background"
-            android:hint="@string/app_name"/>
+            android:hint="@string/app_name"
+            android:imeOptions="actionNext"
+            android:inputType="number"/>
     </com.example.betssonrequest.MyTextInputLayout>
 
     <com.example.betssonrequest.MyTextInputLayout
@@ -79,15 +85,25 @@
     </com.example.betssonrequest.MyTextInputLayout>
 
     <com.example.betssonrequest.MyTextInputLayout
+        android:id="@+id/til_share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true"
+        app:endIconMode="clear_text"
+        app:endIconDrawable="@drawable/ic_baseline_close_24"
+        app:endIconTint="@color/SecondaryColor2"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txb_share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Default FilledBox"
             android:hint="Default"/>
     </com.example.betssonrequest.MyTextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Share"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

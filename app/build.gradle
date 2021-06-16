@@ -1,10 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+//    id 'com.google.android.secrets_gradle_plugin' version '1.0.0'
+    id 'com.google.secrets_gradle_plugin' version '0.6'
 }
 
 android {
-//    compileSdkVersion("android-S")
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -12,10 +13,13 @@ android {
         applicationId "com.example.betssonrequest"
         minSdkVersion 21
         targetSdkVersion 30
-//        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -56,6 +60,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0-beta02'
 
     implementation project(path: ':core')
+    implementation project(path: ':twitter')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

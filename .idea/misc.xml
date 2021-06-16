@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable/text_input_white_background.xml" value="0.1537037037037037" />
         <entry key="app/src/main/res/drawable/text_input_white_background_disabled.xml" value="0.1537037037037037" />
         <entry key="app/src/main/res/drawable/text_input_white_background_error.xml" value="0.2638888888888889" />
         <entry key="app/src/main/res/drawable/text_input_white_background_focused.xml" value="0.27025641025641023" />
         <entry key="app/src/main/res/drawable/text_input_white_background_normal.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2958963282937365" />
+        <entry key="app/src/main/res/layout/fragment_dialog_bottom_sheet.xml" value="0.16666666666666666" />
+        <entry key="twitter/src/main/res/layout/fragment_dialog_bottom_sheet.xml" value="0.24479166666666666" />
       </map>
     </option>
   </component>

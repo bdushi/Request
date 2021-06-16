@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id 'com.google.secrets_gradle_plugin' version '0.6'
 }
 
 java {
@@ -8,9 +9,29 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+test {
+    useJUnitPlatform()
+}
+
+//sourceSets {
+//    main {
+//        res {
+//            srcDirs 'src/main/res', 'src/test/resources', 'src/androidTest/resources'
+//        }
+//    }
+//}
+
+//sourceSets {
+//    androidTest.java.srcDirs += "src/test-common/java"
+//    test.java.srcDirs += "src/test-common/java"
+//}
+
 dependencies {
     // retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
     api 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    // test
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }

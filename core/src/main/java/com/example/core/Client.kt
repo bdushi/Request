@@ -1,7 +1,9 @@
 package com.example.core
 
 import com.google.gson.GsonBuilder
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,6 +20,41 @@ class Client {
             .Builder()
             .baseUrl("https://sto-tech-techssona.bde.local/Techsson.Customer.Management.Api/api/Customer/")
             .client(getUnsafeOkHttpClient(logging()))
+            .addConverterFactory(converterFactory())
+            .build()
+    }
+
+    fun twitterClient(host: String) : Retrofit {
+        return Retrofit
+            .Builder()
+            .baseUrl(host)
+            .client(okHttpClient(logging()))
+            .addConverterFactory(converterFactory())
+            .build()
+    }
+
+    fun twitter(host: String, oauthNonce: String, nonce: String, timestamp: String) : Retrofit {
+        return Retrofit
+            .Builder()
+            .baseUrl(host)
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(HttpLoggingInterceptor().apply {
+                        this.level = HttpLoggingInterceptor.Level.HEADERS
+                    })
+                    .addInterceptor(fun(chain: Interceptor.Chain): Response {
+                        return chain.proceed(
+                            chain.request()
+                                .newBuilder()
+                                .addHeader("OAuth oauth_consumer_key", "ETSFMgKDvsZAAUPdoev7ai8zp")
+                                .addHeader("oauth_signature_method", "HMAC-SHA1")
+                                .addHeader("oauth_timestamp", timestamp)
+                                .addHeader("oauth_signature", oauthNonce)
+                                .addHeader("oauth_nonce", nonce)
+                                .build()
+                        )
+                    }).build()
+            )
             .addConverterFactory(converterFactory())
             .build()
     }

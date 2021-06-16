@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="BetssonTest.app" target="13" />
+      <module name="BetssonTest.twitter" target="13" />
     </bytecodeTargetLevel>
   </component>
 </project>

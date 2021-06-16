@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="CustomTextInputLayout.Default" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="materialThemeOverlay">@style/CustomTextInputLayoutThemeOverlay</item>
         <item name="shapeAppearanceOverlay">@style/CustomTextInputLayoutShapeAppearanceOverlay</item>
         <item name="textInputLayoutErrorDrawable">@drawable/text_input_white_background_error</item>
@@ -9,8 +9,19 @@
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeWidthFocused">0dp</item>
 <!--        <item name="hintTextAppearance">@style/HintTextAppearance</item>-->
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="boxBackgroundColor">@color/TextBoxBgColor</item>
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="hintTextColor">@color/hint</item>
+    </style>
+
+    <style name="CustomTextInputLayout" parent="CustomTextInputLayout.Default">
         <item name="errorIconDrawable">@null</item>
         <item name="endIconMode">clear_text</item>
+        <item name="endIconDrawable">@drawable/ic_baseline_close_24</item>
+        <item name="endIconTint">@color/TertiaryColor1</item>
     </style>
 
     <style name="HintTextAppearance" parent="TextAppearance.AppCompat">

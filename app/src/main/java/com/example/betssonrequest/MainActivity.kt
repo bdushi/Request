@@ -21,8 +21,6 @@ package com.example.betssonrequest
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -32,7 +30,9 @@ import kotlin.coroutines.CoroutineContext
 import android.content.Intent
 import android.util.Log
 import com.example.core.Client
-import com.example.core.EndPointService
+import com.example.core.service.EndPointService
+import com.example.core.service.TwitterService
+import com.example.twitter.ui.TwitterLogInBottomSheet
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
     private var states = arrayOf(
@@ -65,28 +65,52 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         mJob = Job()
         setContentView(R.layout.activity_main)
-        val txtInputLayout: TextInputLayout = findViewById(R.id.txtInputLayout)
-        val txtInput: TextInputEditText = findViewById(R.id.txtInput)
-        txtInput.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(!p0.isNullOrEmpty()) {
-                    txtInputLayout.error = "Error"
-                    txtInput.setHintTextColor(myList)
-//                    txtInputLayout.hintTextColor = myList
-//                    txtInputLayout.setHintTextAppearance(R.style.HintTextAppearance)
-                } else {
-                    txtInputLayout.error = null
-                    txtInputLayout.isErrorEnabled = false
+        val txtErrorInputLayout: TextInputLayout = findViewById(R.id.txtErrorInputLayout)
+        val txtErrorInput: TextInputEditText = findViewById(R.id.txtErrorInput)
+
+        val test: TextInputEditText = findViewById(R.id.test_box)
+        val testBoxLayout: MyTextInputLayout = findViewById(R.id.test_box_layout)
+
+        val txbShare: TextInputEditText = findViewById(R.id.txb_share)
+        val btnShare: MaterialButton = findViewById(R.id.btn_share)
+        val tilShare: MyTextInputLayout = findViewById(R.id.til_share)
+
+        btnShare.setOnClickListener {
+            if(txbShare.text.isNullOrBlank()) {
+                tilShare.error = "Please fill the box"
+            } else {
+                launch {
+                    async(Dispatchers.IO) {
+                        runCatching {
+                            Client()
+                                .twitterClient(BuildConfig.baseURL)
+                                .create(TwitterService::class.java)
+                                .signing()
+                        }.onSuccess { result ->
+                            runCatching {
+                                Client()
+                                    .twitter(BuildConfig.baseURL, "")
+                                    .create(TwitterService::class.java)
+                                    .requestToken()
+                            }.onSuccess {
+                                TwitterLogInBottomSheet
+                                    .Builder()
+                                    .build()
+                                    .show(supportFragmentManager, "TWITTER")
+                            }.onFailure {
+                                Log.d("OkHttp", "Failed:  ${it.message}")
+                            }
+                        }.onFailure {
+                            Log.d("OkHttp", "Failed:  ${it.message}")
+                        }
+                    }
                 }
             }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
-        })
+        }
+        test.setText("1258")
+        test.setOnFocusChangeListener { view, b ->
+            Log.d("TAG", b.toString())
+        }
         findViewById<MaterialButton>(R.id.start_service).setOnClickListener {
             startService(Intent(this, TestService::class.java))
         }

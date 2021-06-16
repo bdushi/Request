@@ -4,9 +4,12 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Log
+import android.view.View
+import android.widget.EditText
 import androidx.appcompat.widget.AppCompatTextView
 import com.google.android.material.textfield.TextInputLayout
 
@@ -51,9 +54,10 @@ private var states = arrayOf(
         normal =
             appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutNormalSelectorDrawable)
         error = appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutErrorDrawable)
-        setHintTextAppearance(R.style.HintTextAppearance)
-        counterOverflowTextColor = myList
-        counterTextColor = myList
+        editText?.background  = normal
+//        setHintTextAppearance(R.style.HintTextAppearance)
+//        counterOverflowTextColor = myList
+//        counterTextColor = myList
 //        defaultHintTextColor = myList
     }
 
@@ -62,9 +66,10 @@ private var states = arrayOf(
         normal =
             appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutNormalSelectorDrawable)
         error = appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutErrorDrawable)
-        setHintTextAppearance(R.style.HintTextAppearance)
-        counterOverflowTextColor = myList
-        counterTextColor = myList
+        editText?.background  = normal
+//        setHintTextAppearance(R.style.HintTextAppearance)
+//        counterOverflowTextColor = myList
+//        counterTextColor = myList
 //        defaultHintTextColor = myList
     }
 
@@ -82,10 +87,31 @@ private var states = arrayOf(
         normal =
             appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutNormalSelectorDrawable)
         error = appAttrs.getDrawable(R.styleable.MyTextInputLayout_textInputLayoutErrorDrawable)
-        setHintTextAppearance(R.style.HintTextAppearance)
-        counterOverflowTextColor = myList
-        counterTextColor = myList
+        editText?.background  = normal
+//        setHintTextAppearance(R.style.HintTextAppearance)
+//        counterOverflowTextColor = myList
+//        counterTextColor = myList
 //        defaultHintTextColor = myList
+    }
+
+//    override fun onViewAdded(child: View?) {
+//        super.onViewAdded(child)
+//        if(child is EditText) {
+//            child.setOnFocusChangeListener { view, b ->
+//                isEndIconVisible = b
+//                Log.d("TAG", "setOnFocusChangeListener")
+//            }
+//        }
+//    }
+
+    override fun setOnFocusChangeListener(l: OnFocusChangeListener?) {
+        super.setOnFocusChangeListener(l)
+        Log.d("TAG", "setOnFocusChangeListener")
+    }
+
+    override fun getOnFocusChangeListener(): OnFocusChangeListener {
+        Log.d("TAG", "getOnFocusChangeListener")
+        return super.getOnFocusChangeListener()
     }
 
     override fun setErrorEnabled(enabled: Boolean) {
@@ -97,14 +123,14 @@ private var states = arrayOf(
         }
 //        counterOverflowTextColor = myList
 //        counterTextColor = myList
-        setErrorTextColor(myList)
-        try {
-            rootView.parent
-            val textInputError: AppCompatTextView = rootView.findViewById(R.id.textinput_error)
-            Log.d("TAG", textInputError.tag.toString())
-        } catch (ex: Exception) {
-            Log.d("TAG", ex.message.toString())
-        }
+//        setErrorTextColor(myList)
+//        try {
+//            rootView.parent
+//            val textInputError: AppCompatTextView = rootView.findViewById(R.id.textinput_error)
+//            Log.d("TAG", textInputError.tag.toString())
+//        } catch (ex: Exception) {
+//            Log.d("TAG", ex.message.toString())
+//        }
 //        setHintTextAppearance(R.style.HintTextAppearance)
 //        placeholderTextColor = myList
 //        hintTextColor = myList

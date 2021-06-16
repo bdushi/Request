@@ -1,4 +1,3 @@
 package com.example.core
 
-class User {
-}
+data class User(private val id: Long)
