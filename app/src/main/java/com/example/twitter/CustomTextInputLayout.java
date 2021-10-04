@@ -1,4 +1,4 @@
-package com.example.betssonrequest;
+package com.example.twitter;
 
 import android.content.Context;
 import android.content.res.TypedArray;

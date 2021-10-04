@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.betssonrequest">
+    package="com.example.twitter">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Betsson"
         android:fullBackupContent="@xml/my_backup_rules">
         <activity
-            android:name=".MainActivity">
+            android:name="com.example.twitter.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,7 +23,7 @@
         </activity>
         <service
             android:exported="false"
-            android:name=".TestService"/>
+            android:name="com.example.twitter.TestService"/>
     </application>
 
 </manifest>

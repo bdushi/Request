@@ -8,6 +8,23 @@
     android:padding="10dp">
 
     <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:indicatorSize="52dp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/progress_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:src="@drawable/ic_baseline_navigate_next_24"/>
+    </FrameLayout>
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -24,7 +41,11 @@
             android:layout_gravity="end"/>
     </FrameLayout>
 
-    <com.example.betssonrequest.MyTextInputLayout
+    <com.example.twitter.MyCustomView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.example.twitter.MyTextInputLayout
         android:id="@+id/txtErrorInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,9 +61,9 @@
             android:hint="Error"
             android:imeOptions="actionNext"
             android:inputType="number"/>
-    </com.example.betssonrequest.MyTextInputLayout>
+    </com.example.twitter.MyTextInputLayout>
 
-    <com.example.betssonrequest.MyTextInputLayout
+    <com.example.twitter.MyTextInputLayout
         android:id="@+id/test_box_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,9 +77,9 @@
             android:hint="@string/app_name"
             android:imeOptions="actionNext"
             android:inputType="number"/>
-    </com.example.betssonrequest.MyTextInputLayout>
+    </com.example.twitter.MyTextInputLayout>
 
-    <com.example.betssonrequest.MyTextInputLayout
+    <com.example.twitter.MyTextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -69,9 +90,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Empty"/>
-    </com.example.betssonrequest.MyTextInputLayout>
+    </com.example.twitter.MyTextInputLayout>
 
-    <com.example.betssonrequest.MyTextInputLayout
+    <com.example.twitter.MyTextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -82,12 +103,13 @@
             android:layout_height="wrap_content"
             android:text="This is disabled"
             android:hint="Disable"/>
-    </com.example.betssonrequest.MyTextInputLayout>
+    </com.example.twitter.MyTextInputLayout>
 
-    <com.example.betssonrequest.MyTextInputLayout
+    <com.example.twitter.MyTextInputLayout
         android:id="@+id/til_share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         app:endIconMode="clear_text"
         app:endIconDrawable="@drawable/ic_baseline_close_24"
         app:endIconTint="@color/SecondaryColor2"
@@ -98,7 +120,21 @@
             android:layout_height="wrap_content"
             android:text="Default FilledBox"
             android:hint="Default"/>
-    </com.example.betssonrequest.MyTextInputLayout>
+    </com.example.twitter.MyTextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        app:endIconMode="password_toggle"
+        style="@style/Widget.Design.TextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_share"
         android:layout_width="wrap_content"

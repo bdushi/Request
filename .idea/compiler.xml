@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="BetssonTest.app" target="13" />
-      <module name="BetssonTest.twitter" target="13" />
+      <module name="BetssonTest.app" target="11" />
+      <module name="BetssonTest.twitter" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

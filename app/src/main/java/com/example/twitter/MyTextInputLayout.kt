@@ -1,16 +1,12 @@
-package com.example.betssonrequest
+package com.example.twitter
 
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Color
-import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Log
-import android.view.View
-import android.widget.EditText
-import androidx.appcompat.widget.AppCompatTextView
 import com.google.android.material.textfield.TextInputLayout
 
 

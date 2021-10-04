@@ -1,4 +1,4 @@
-package com.example.betssonrequest
+package com.example.twitter
 
 import android.app.Service
 import android.content.Intent

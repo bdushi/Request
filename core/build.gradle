@@ -13,18 +13,13 @@ test {
     useJUnitPlatform()
 }
 
-//sourceSets {
-//    main {
-//        res {
-//            srcDirs 'src/main/res', 'src/test/resources', 'src/androidTest/resources'
-//        }
-//    }
-//}
-
-//sourceSets {
-//    androidTest.java.srcDirs += "src/test-common/java"
-//    test.java.srcDirs += "src/test-common/java"
-//}
+sourceSets {
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+    }
+}
 
 dependencies {
     // retrofit

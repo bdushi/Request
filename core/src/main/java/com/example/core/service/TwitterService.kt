@@ -1,7 +1,6 @@
 package com.example.core.service
 
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * https://developer.twitter.com/en/docs/authentication/api-reference/request_token
@@ -14,12 +13,20 @@ import retrofit2.http.POST
  */
 
 interface TwitterService {
+    // "X-Twitter-Client-Version", "4.0.7"
+    // X-Twitter-Client-URL, http://twitter4j.org/en/twitter4j-4.0.7.xml
+    // X-Twitter-Client, Twitter4J
+//    @Headers(
+//        "X-Twitter-Client-Version : 4.0.7",
+//        "X-Twitter-Client-URL : http://twitter4j.org/en/twitter4j-4.0.7.xml",
+//        "X-Twitter-Client : Twitter4J",
+//        "User-Agent : twitter4j http://twitter4j.org/ /"
+//    )
+    @Headers("Content-Type:application/json")
+    @POST("oauth/request_token/")
+    suspend fun requestToken(@Header("Authorization") header: String)
 
-    @POST("oauth/request_token")
-    suspend fun requestToken() {
-
-    }
-    @FormUrlEncoded
-    @POST("1.1/statuses/update.json")
-    fun signing()
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("1.1/statuses/update.json?include_entities=true")
+    suspend fun signing()
 }
